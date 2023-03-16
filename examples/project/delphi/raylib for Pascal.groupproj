@@ -9,6 +9,12 @@
         <Projects Include="scroll_panel.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="shaders_basic_lighting.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="audio_music_stream.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +41,32 @@
     <Target Name="scroll_panel:Make">
         <MSBuild Projects="scroll_panel.dproj" Targets="Make"/>
     </Target>
+    <Target Name="shaders_basic_lighting">
+        <MSBuild Projects="shaders_basic_lighting.dproj"/>
+    </Target>
+    <Target Name="shaders_basic_lighting:Clean">
+        <MSBuild Projects="shaders_basic_lighting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="shaders_basic_lighting:Make">
+        <MSBuild Projects="shaders_basic_lighting.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="audio_music_stream">
+        <MSBuild Projects="audio_music_stream.dproj"/>
+    </Target>
+    <Target Name="audio_music_stream:Clean">
+        <MSBuild Projects="audio_music_stream.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="audio_music_stream:Make">
+        <MSBuild Projects="audio_music_stream.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="core_basic_window;scroll_panel"/>
+        <CallTarget Targets="core_basic_window;scroll_panel;shaders_basic_lighting;audio_music_stream"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="core_basic_window:Clean;scroll_panel:Clean"/>
+        <CallTarget Targets="core_basic_window:Clean;scroll_panel:Clean;shaders_basic_lighting:Clean;audio_music_stream:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="core_basic_window:Make;scroll_panel:Make"/>
+        <CallTarget Targets="core_basic_window:Make;scroll_panel:Make;shaders_basic_lighting:Make;audio_music_stream:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

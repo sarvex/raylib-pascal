@@ -89,13 +89,7 @@ begin
   InitWindow(screen_width, screen_height, GetTitle(modual, title));
 
   // init icon
-  LIcon := LoadImage('resources/icon.png');
-  if assigned(LIcon.data) then
-  begin
-    ImageFormat(@LIcon,PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
-    SetWindowIcon(LIcon);
-    UnloadImage(LIcon);
-  end;
+  LoadDefaultIcon;
 end;
 
 procedure example_shutdown;
