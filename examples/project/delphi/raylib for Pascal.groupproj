@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{59BB0A27-754C-4BBF-827E-88E27788330A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="core_basic_window.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="scroll_panel.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="core_basic_window">
+        <MSBuild Projects="core_basic_window.dproj"/>
+    </Target>
+    <Target Name="core_basic_window:Clean">
+        <MSBuild Projects="core_basic_window.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="core_basic_window:Make">
+        <MSBuild Projects="core_basic_window.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="scroll_panel">
+        <MSBuild Projects="scroll_panel.dproj"/>
+    </Target>
+    <Target Name="scroll_panel:Clean">
+        <MSBuild Projects="scroll_panel.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="scroll_panel:Make">
+        <MSBuild Projects="scroll_panel.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="core_basic_window;scroll_panel"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="core_basic_window:Clean;scroll_panel:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="core_basic_window:Make;scroll_panel:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

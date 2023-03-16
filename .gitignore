@@ -67,3 +67,12 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# raylib for Pascal
+*.log
+*.zip
+*.arc
+examples/**/Win64
+bin/*.txt
+bin/*.ini
+docs/*.chw
