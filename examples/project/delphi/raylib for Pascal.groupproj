@@ -15,6 +15,12 @@
         <Projects Include="audio_music_stream.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="shapes_basic_shapes.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="text_font_sdf.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -59,14 +65,32 @@
     <Target Name="audio_music_stream:Make">
         <MSBuild Projects="audio_music_stream.dproj" Targets="Make"/>
     </Target>
+    <Target Name="shapes_basic_shapes">
+        <MSBuild Projects="shapes_basic_shapes.dproj"/>
+    </Target>
+    <Target Name="shapes_basic_shapes:Clean">
+        <MSBuild Projects="shapes_basic_shapes.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="shapes_basic_shapes:Make">
+        <MSBuild Projects="shapes_basic_shapes.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="text_font_sdf">
+        <MSBuild Projects="text_font_sdf.dproj"/>
+    </Target>
+    <Target Name="text_font_sdf:Clean">
+        <MSBuild Projects="text_font_sdf.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="text_font_sdf:Make">
+        <MSBuild Projects="text_font_sdf.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="core_basic_window;scroll_panel;shaders_basic_lighting;audio_music_stream"/>
+        <CallTarget Targets="core_basic_window;scroll_panel;shaders_basic_lighting;audio_music_stream;shapes_basic_shapes;text_font_sdf"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="core_basic_window:Clean;scroll_panel:Clean;shaders_basic_lighting:Clean;audio_music_stream:Clean"/>
+        <CallTarget Targets="core_basic_window:Clean;scroll_panel:Clean;shaders_basic_lighting:Clean;audio_music_stream:Clean;shapes_basic_shapes:Clean;text_font_sdf:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="core_basic_window:Make;scroll_panel:Make;shaders_basic_lighting:Make;audio_music_stream:Make"/>
+        <CallTarget Targets="core_basic_window:Make;scroll_panel:Make;shaders_basic_lighting:Make;audio_music_stream:Make;shapes_basic_shapes:Make;text_font_sdf:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

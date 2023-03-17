@@ -69,7 +69,6 @@ uses
 const
   modual = 'shaders';
   title  = 'basic lighting';
-  GLSL_VERSION = 330;
 
 var
   camera: Camera3D;

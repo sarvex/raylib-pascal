@@ -57,7 +57,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************)
 
-unit utemplate;
+unit ushapes_basic_shapes;
 
 interface
 
@@ -67,9 +67,12 @@ uses
   ucommon;
 
 const
-  modual = 'core';
-  title  = 'base window';
+  modual = 'shapes';
+  title  = 'basic shapes';
   fps    = 60;
+
+var
+  rotation: single = 0.0;
 
 procedure example_startup;
 procedure example_shutdown;
@@ -105,16 +108,47 @@ end;
 procedure example_update;
 begin
   // update
+  rotation := rotation + 0.2;
+
 end;
 
 procedure example_render;
 begin
   // render
   BeginDrawing;
-    ClearBackground(DARKSLATEBROWN);
+    ClearBackground(RAYWHITE);
     DrawFPS(3, 3);
-    DrawText('Hello, World! Welcome to raylib.', 190, 200, 20, DARKGREEN);
-  EndDrawing;
+
+    DrawText('some basic shapes available on raylib', 20, 20, 20, DARKGRAY);
+
+    // Circle shapes and lines
+    DrawCircle(screen_width div 5, 120, 35, DARKBLUE);
+    DrawCircleGradient(screen_width div 5, 220, 60, GREEN, SKYBLUE);
+    DrawCircleLines(screen_width div 5, 340, 80, DARKBLUE);
+
+    // Rectangle shapes and lines
+    DrawRectangle(screen_width div 4*2 - 60, 100, 120, 60, RED);
+    DrawRectangleGradientH(screen_width div 4*2 - 90, 170, 180, 130, MAROON, GOLD);
+    DrawRectangleLines(screen_width div 4*2 - 40, 320, 80, 60, ORANGE);  // NOTE: Uses QUADS internally, not lines
+
+    // Triangle shapes and lines
+    DrawTriangle(GetVector2( screen_width/4.0 *3.0, 80.0 ),
+                 GetVector2( screen_width/4.0 *3.0 - 60.0, 150.0 ),
+                 GetVector2( screen_width/4.0 *3.0 + 60.0, 150.0 ), VIOLET);
+
+    DrawTriangleLines(GetVector2( screen_width/4.0*3.0, 160.0 ),
+                      GetVector2( screen_width/4.0*3.0 - 20.0, 230.0 ),
+                      GetVector2( screen_width/4.0*3.0 + 20.0, 230.0 ), DARKBLUE);
+
+    // Polygon shapes and lines
+    DrawPoly(GetVector2( screen_width/4.0*3, 330 ), 6, 80, rotation, BROWN);
+    DrawPolyLines(GetVector2( screen_width/4.0*3, 330 ), 6, 90, rotation, BROWN);
+    DrawPolyLinesEx(GetVector2( screen_width/4.0*3, 330 ), 6, 85, rotation, 6, BEIGE);
+
+    // NOTE: We draw all LINES based shapes together to optimize internal drawing,
+    // this way, all LINES are rendered in a single draw pass
+    DrawLine(18, 42, screen_width - 18, 42, BLACK);
+EndDrawing;
 end;
 
 procedure example_run;

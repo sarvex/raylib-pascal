@@ -57,80 +57,17 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************)
 
-unit utemplate;
+program shapes_basic_shapes;
 
-interface
+{$APPTYPE CONSOLE}
+
+{$R *.res}
 
 uses
   sysutils,
   raylib,
-  ucommon;
+  ushapes_basic_shapes in '..\..\src\ushapes_basic_shapes.pas';
 
-const
-  modual = 'core';
-  title  = 'base window';
-  fps    = 60;
-
-procedure example_startup;
-procedure example_shutdown;
-procedure example_update;
-procedure example_render;
-procedure example_run;
-
-implementation
-
-procedure example_startup;
-var
-  LIcon: Image;
 begin
-  // init flags for high depi and mssa
-  SetConfigFlags(FLAG_WINDOW_HIGHDPI or FLAG_MSAA_4X_HINT);
-
-  // init windows
-  InitWindow(screen_width, screen_height, GetTitle(modual, title));
-
-  // init icon
-  LoadDefaultIcon;
-
-  // init fps
-  SetTargetFPS(fps);
-end;
-
-procedure example_shutdown;
-begin
-  // close window
-  CloseWindow;
-end;
-
-procedure example_update;
-begin
-  // update
-end;
-
-procedure example_render;
-begin
-  // render
-  BeginDrawing;
-    ClearBackground(DARKSLATEBROWN);
-    DrawFPS(3, 3);
-    DrawText('Hello, World! Welcome to raylib.', 190, 200, 20, DARKGREEN);
-  EndDrawing;
-end;
-
-procedure example_run;
-begin
-  // init startup
-  example_startup;
-
-  // process game loop
-  while (not WindowShouldClose) do
-  begin
-    example_update;
-    example_render;
-  end;
-
-  // shut down
-  example_shutdown;
-end;
-
+  example_run;
 end.

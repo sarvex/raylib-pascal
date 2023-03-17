@@ -68,9 +68,12 @@ uses
   raylib;
 
 const
+  GLSL_VERSION = 330;
+
   screen_width  = 800;
   screen_height = 450;
   screen_title  = 'raylib [%s] example - %s';
+
 
   MAX_LIGHTS = 4;
   LIGHT_DIRECTIONAL = 0;
